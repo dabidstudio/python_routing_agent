@@ -36,7 +36,7 @@
 ## 설치 방법
 
 1. **레포지토리 복제 또는 다운로드**
-2. **OpenAI API 키 설정**:
+2. **[OpenAI API 키 설정](https://github.com/dabidstudio/dabidstudio_guides/blob/main/get-openai-api-key.md)**:
    `.env` 파일 생성하고 키 입력
    ```bash
    OPENAI_API_KEY=여기에_실제_API_키_입력
