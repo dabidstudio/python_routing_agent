@@ -3,6 +3,7 @@
 질문 유형에 따라 최적의 OpenAI 모델을 자동으로 선택하는 라우팅 AI 에이전트입니다.   
 프롬프트를 분석하여 가장 적합한 모델  
 (GPT-4o, GPT-5-nano, GPT-5-thinking, GPT-4.1)로 라우팅하여 최적의 성능을 제공합니다.
+<img width="3541" height="1867" alt="image" src="https://github.com/user-attachments/assets/97d5eabf-c375-4b99-8305-acd14796cfb3" />
 
 
 
@@ -36,14 +37,14 @@
 ## 설치 방법
 
 1. **레포지토리 복제 또는 다운로드**
-2. **[OpenAI API 키 설정](https://github.com/dabidstudio/dabidstudio_guides/blob/main/get-openai-api-key.md)**:
+2. **[OpenAI API 키 설정](https://github.com/dabidstudio/dabidstudio_guides/blob/main/get-openai-api-key.md)**:  
    `.env` 파일 생성하고 키 입력
    ```bash
    OPENAI_API_KEY=여기에_실제_API_키_입력
    ```
 
 3. 실행
-
-```bash
-uv run streamlit run main.py
-```
+   
+   ```bash
+   uv run streamlit run main.py
+   ```
