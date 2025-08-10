@@ -38,11 +38,6 @@ def get_best_model(user_prompt) -> str:
     )
     
     recommended_model = response.output_text
-    
-    valid_models = ["gpt-4o", "gpt-5-nano", "gpt-5-thinking", "gpt-4.1"]
-    if recommended_model not in valid_models:
-        recommended_model = "gpt-4o"
-    
     return recommended_model
 
 
@@ -73,7 +68,6 @@ def main():
         st.session_state["openai_model"] = "자동"
     if "messages" not in st.session_state:
         st.session_state.messages = []  
-
     MODEL_OPTIONS = [
         "자동",
         "gpt-4o",
@@ -81,6 +75,7 @@ def main():
         "gpt-5-thinking",
         "gpt-4.1",
     ]
+
 
     left_col, right_col = st.columns([2, 1])
     with left_col:
@@ -101,7 +96,10 @@ def main():
         with st.chat_message(message["role"], avatar=icon):
             st.markdown(message["content"])
 
-    if prompt := st.chat_input("에이전트에게 물어보기"):
+    prompt = st.chat_input("에이전트에게 물어보기")
+
+
+    if prompt:
         st.session_state.messages.append({"role": "user", "content": prompt})
         with st.chat_message("user", avatar=":material/person:"):
             st.markdown(prompt)
@@ -114,7 +112,7 @@ def main():
                 st.toast(f"🎯 모델 선택: **{selected_model}**")
             else:
                 selected_model = st.session_state["openai_model"]
-            
+           
             if selected_model == "gpt-5-thinking":
                 with st.expander("🔎 추론 과정", expanded=False):
                     reasoning_ph = st.empty()
@@ -123,7 +121,6 @@ def main():
 
             answer_chunks = []
             reasoning_chunks = []
-
             stream = llm_stream_events(
                 model=selected_model,
                 messages=st.session_state.messages,
